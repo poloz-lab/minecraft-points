@@ -36,3 +36,8 @@ class Point:
             raise ValueError("unknown dimension \"{}\", sould be \"overworld\" or \"nether\" or \"end\"".format(dimension))
         self.dimension = dimension
 
+    def __repr__(self):
+        return "Point x: {} y: {} z: {} dimension: {}".format(self.x,
+                                                              self.y,
+                                                              self.z,
+                                                              self.dimension)
