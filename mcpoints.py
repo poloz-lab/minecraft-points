@@ -3,6 +3,8 @@
 
 """module to reprensent points in minecraft, and manage them in a list"""
 
+import pickle
+
 class Point:
     """Class to represent a point in a minecraft world, represented by:
         - x component
@@ -47,3 +49,27 @@ class Point:
                                                                               self.z,
                                                                               self.dimension,
                                                                               self.description)
+
+
+def writePoints(name_file, list_points ):
+    """Write a list of points in a file
+    Parameters:
+        name_file: name file (string)
+        list_points: list containing all the points (list)
+    """
+    with open(name_file, 'wb') as f:
+        pickle.dump(list_points , f)
+
+
+def readPoints(name_file):
+    """Read a file to retrieve the points and return a list containing all the points
+    Parameters:
+        name_file: name file (string)
+    """
+    with open(name_file, 'rb') as f:
+        while True:
+            try:
+                list_points = pickle.load(f)
+            except EOFError:
+                break
+    return list_points
