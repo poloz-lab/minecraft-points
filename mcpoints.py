@@ -42,7 +42,8 @@ class Point:
         self.description = description
 
     def __repr__(self):
-        return "Point x: {} y: {} z: {} dimension: {}".format(self.x,
-                                                              self.y,
-                                                              self.z,
-                                                              self.dimension)
+        return "Point x: {} y: {} z: {} dimension: {} description: {}".format(self.x,
+                                                                              self.y,
+                                                                              self.z,
+                                                                              self.dimension,
+                                                                              self.description)
