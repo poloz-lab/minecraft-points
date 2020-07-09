@@ -8,9 +8,10 @@ class Point:
         - x component
         - y component
         - z component
-        - dimension (overworld or nether or end)"""
+        - dimension (overworld or nether or end)
+        - short description with the point"""
 
-    def __init__(self, x, y, z, dimension):
+    def __init__(self, x, y, z, dimension, description):
         """Initialize a point in a minecraft world
         Parameters:
             x: x component (integer)
@@ -20,6 +21,7 @@ class Point:
                 - "overworld"
                 - "nether"
                 - "end"
+            description: string to describe the point
         """
         if not isinstance(x, int):
             raise TypeError("x must be an integer")
@@ -35,9 +37,13 @@ class Point:
            and dimension != "end":
             raise ValueError("unknown dimension \"{}\", sould be \"overworld\" or \"nether\" or \"end\"".format(dimension))
         self.dimension = dimension
+        if not isinstance(description, str):
+            raise TypeError("description must be a string")
+        self.description = description
 
     def __repr__(self):
-        return "Point x: {} y: {} z: {} dimension: {}".format(self.x,
-                                                              self.y,
-                                                              self.z,
-                                                              self.dimension)
+        return "Point x: {} y: {} z: {} dimension: {} description: {}".format(self.x,
+                                                                              self.y,
+                                                                              self.z,
+                                                                              self.dimension,
+                                                                              self.description)
